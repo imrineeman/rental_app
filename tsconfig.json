@@ -1,26 +1,29 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
-  },
-  "include": [
-    "src"
-  ]
+	"compilerOptions": {
+		"target": "es5",
+		"lib": ["dom", "dom.iterable", "es2020"],
+		"allowJs": true,
+		"module": "esnext",
+		"moduleResolution": "node",
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"isolatedModules": true,
+		"preserveConstEnums": true,
+		"removeComments": true,
+		"sourceMap": true,
+		"resolveJsonModule": true,
+		"strictPropertyInitialization": false,
+		"noImplicitReturns": true,
+		"jsx": "react-jsx",
+		"noUnusedLocals": false,
+		"noUnusedParameters": true,
+		"declaration": true,
+		"noEmit": true
+	},
+	"exclude": ["node_modules", "**/*.test.*"],
+	"include": ["src"]
 }
