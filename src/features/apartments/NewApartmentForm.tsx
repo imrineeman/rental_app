@@ -10,9 +10,9 @@ import ApartmentFeatureSelect from './ApartmentFeatureSelect';
 interface FormProps {
 	toggleFormVisibility(): void;
 }
+
 const NewApartmentForm = (props: FormProps): JSX.Element => {
 	const [features, setFeatures] = useState<ApartmentFeatures[]>([]);
-
 	const city = useTextInput('');
 	const address = useTextInput('');
 	const rooms = useTextInput('');
@@ -22,6 +22,7 @@ const NewApartmentForm = (props: FormProps): JSX.Element => {
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
+
 		const newApartment: Omit<Apartment, 'id'> = {
 			city: city.value,
 			address: address.value,
@@ -29,12 +30,12 @@ const NewApartmentForm = (props: FormProps): JSX.Element => {
 			price: parseInt(price.value),
 			features: features,
 		};
+
 		dispatch(createApartmentActionCreator(newApartment));
 		props.toggleFormVisibility();
 	};
 	return (
 		<div>
-			<h4>Add New Apartment Listing</h4>
 			<form onSubmit={handleSubmit}>
 				<Stack
 					spacing={2}

@@ -9,6 +9,7 @@ interface ApartmentDataFieldProps {
 	fieldType: ApartmentFilter;
 	fieldValue: string | number;
 }
+
 const ApartmentDataField = ({
 	fieldType,
 	fieldValue,
@@ -20,7 +21,9 @@ const ApartmentDataField = ({
 		color: theme.palette.text.primary,
 		background: '#FEF5ED',
 	}));
+
 	const capitalizedField = capitalizeFirstLetter(fieldType as string);
+
 	return (
 		<Grid>
 			<Item>

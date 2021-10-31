@@ -2,36 +2,30 @@ import React from 'react';
 import { deleteApartmentActionCreator } from './apartmentsSlice';
 import { useAppDispatch } from '../../store/hooks';
 import { Apartment } from '../../shared/types/types';
+
 import ApartmentDataField from './ApartmentDataField';
+import ApartmentFeatureChips from './ApartmentFeatureChips';
+
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
-import Chip from '@mui/material/Chip';
+
+interface ApartmentListingProps {
+	apartment: Apartment;
+}
 
 const ApartmentListing = ({
 	apartment,
-}: {
-	apartment: Apartment;
-}): JSX.Element => {
+}: ApartmentListingProps): JSX.Element => {
 	const dispatch = useAppDispatch();
 	const handleRemoveClick = () => {
 		dispatch(deleteApartmentActionCreator({ id: apartment.id }));
 	};
 
-	const renderFeatureChips = ((): JSX.Element[] => {
-		let chipArr: JSX.Element[] = [];
-		if (apartment.features != null) {
-			chipArr = apartment.features.map((feature) => (
-				<Chip label={feature} />
-			));
-		}
-		return chipArr;
-	})();
-
 	return (
 		<Box sx={{ margin: 1, marginBottom: 3 }}>
-			<Paper elevation={3}>
+			<Paper variant="outlined">
 				<Grid
 					sx={{
 						display: 'grid',
@@ -49,7 +43,9 @@ const ApartmentListing = ({
 						fieldValue={apartment.rooms}
 					/>
 					<Grid>
-						<div>{renderFeatureChips}</div>
+						<div className="feature-chips">
+							<ApartmentFeatureChips apartment={apartment} />
+						</div>
 					</Grid>
 					<ApartmentDataField
 						fieldType="address"

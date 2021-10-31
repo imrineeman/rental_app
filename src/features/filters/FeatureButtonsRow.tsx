@@ -14,6 +14,7 @@ const FeatureButtonsRow = ({
 				<Button
 					variant="outlined"
 					color="secondary"
+					key={feature}
 					onClick={() => handleFeatureButtonClick(feature)}>
 					{feature}
 				</Button>

@@ -16,7 +16,6 @@ const RentalUserInput = () => {
 	>([]);
 
 	const dispatch = useAppDispatch();
-	const stableDispatch = useCallback(dispatch, []);
 
 	const handleFeatureButtonClick = (feature: ApartmentFeatures) => {
 		if (selectedFeatures.includes(feature)) {
@@ -35,13 +34,13 @@ const RentalUserInput = () => {
 	};
 
 	useEffect(() => {
-		stableDispatch(
+		dispatch(
 			updateFilterActionCreator({
 				filterType: 'features',
 				filterValue: [...selectedFeatures],
 			}),
 		);
-	}, [selectedFeatures, stableDispatch]);
+	}, [selectedFeatures, dispatch]);
 
 	return (
 		<div className="RentalUserInput">

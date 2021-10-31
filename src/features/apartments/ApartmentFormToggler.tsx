@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import NewApartmentForm from './NewApartmentForm';
+import Button from '@mui/material/Button';
 
 const ApartmentFormToggler = (): JSX.Element => {
 	const [showForm, setShowForm] = useState(false);
 	const handleShowFormClick = () => {
 		setShowForm(showForm ? false : true);
 	};
+
 	return (
 		<div>
-			<button onClick={handleShowFormClick}>Add apartment</button>
+			<Button color="secondary" onClick={handleShowFormClick}>
+				Add apartment
+			</Button>
 			{showForm && (
 				<NewApartmentForm toggleFormVisibility={handleShowFormClick} />
 			)}

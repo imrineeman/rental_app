@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { v1 as uuid } from 'uuid';
 import { Apartment } from '../../shared/types/types';
-import initialData from '../../initialData.json';
+import initialData from '../../shared/utils/initialData.json';
 
-const initialState = initialData as Apartment[];
+export const initialState = initialData as Apartment[];
 
 export const apartmentsSlice = createSlice({
 	name: 'apartments',

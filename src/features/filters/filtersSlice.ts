@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ApartmentFilters, ApartmentFilter } from '../../shared/types/types';
 
-const initialState: ApartmentFilters = {
+export const initialState: ApartmentFilters = {
 	city: '',
 	address: '',
 	rooms: [],
@@ -18,11 +18,13 @@ export const filtersSlice = createSlice({
 			{
 				payload,
 			}: PayloadAction<{
-				filterType: ApartmentFilter; // Need to solve mapping between ApartmentFilters and FilterInputTypes
-				filterValue: any;
+				filterType: ApartmentFilter;
+				filterValue: any; // How to handle typing this?
 			}>,
 		) => {
-			switch (payload.filterType) {
+			switch (
+				payload.filterType // Seperate switch statement to distinct actions?
+			) {
 				case 'address':
 					state.address = payload.filterValue;
 					break;
