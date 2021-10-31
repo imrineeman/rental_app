@@ -1,11 +1,18 @@
 import React from 'react';
 import ApartmentListing from './ApartmentListing';
+import { Apartment } from '../../shared/types/types';
 
-const ApartmentList = (): JSX.Element => {
+const ApartmentList = ({
+	apartments,
+}: {
+	apartments: Apartment[];
+}): JSX.Element => {
 	return (
-		<>
-			<ApartmentListing />
-		</>
+		<div>
+			{apartments.map((apartment) => (
+				<ApartmentListing key={apartment.id} apartment={apartment} />
+			))}
+		</div>
 	);
 };
 

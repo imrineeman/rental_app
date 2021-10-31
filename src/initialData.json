@@ -1,51 +1,58 @@
 [
-    {
-        "city": "Eilat",
-        "address": "Arlozorov",
-        "rooms": 3,
-        "price": 3000,
-        "features": ["air condition", "elevator", "parking"]
-    },
-    {
-        "city": "Ashdod",
-        "address": "Weizmann",
-        "rooms": 3,
-        "price": 4000,
-        "features": ["elevator"]
-    },
-    {
-        "city": "Ashkelon",
-        "address": "Arlozorov",
-        "rooms": 2,
-        "price": 2500,
-        "features": ["elevator", "parking"]
-    },
-    {
-        "city": "Beer Sheva",
-        "address": "Arlozorov",
-        "rooms": 5,
-        "price": 4000,
-        "features": ["elevator", "mamad", "running water", "furnished"]
-    },
-    {
-        "city": "Netanya",
-        "address": "Gordon",
-        "rooms": 4,
-        "price": 3500,
-        "features": ["elevator", "mamad", "running water", "furnished"]
-    },
-    {
-        "city": "Tel Aviv",
-        "address": "Namir",
-        "rooms": 7,
-        "price": 8000,
-        "features": ["mamad", "running water"]
-    },
-    {
-        "city": "Bat Yam",
-        "address": "Herzl",
-        "rooms": 2,
-        "price": 2900,
-        "features": []
-    }
+	{
+		"city": "Eilat",
+		"address": "Arlozorov",
+		"rooms": 3,
+		"price": 3000,
+		"features": ["air condition", "elevator", "parking"],
+		"id": "0"
+	},
+	{
+		"city": "Ashdod",
+		"address": "Weizmann",
+		"rooms": 3,
+		"price": 4000,
+		"features": ["elevator"],
+		"id": "1"
+	},
+	{
+		"city": "Ashkelon",
+		"address": "Arlozorov",
+		"rooms": 2,
+		"price": 2500,
+		"features": ["elevator", "parking"],
+		"id": "2"
+	},
+	{
+		"city": "Beer Sheva",
+		"address": "Arlozorov",
+		"rooms": 5,
+		"price": 4000,
+		"features": ["elevator", "mamad", "running water", "furnished"],
+		"id": "3"
+	},
+	{
+		"city": "Netanya",
+		"address": "Gordon",
+		"rooms": 4,
+		"price": 3500,
+		"features": ["elevator", "mamad", "running water", "furnished"],
+		"id": "4"
+	},
+	{
+		"city": "Tel Aviv",
+		"address": "Namir",
+		"rooms": 7,
+		"price": 8000,
+		"features": ["mamad", "running water"],
+		"id": "5"
+	},
+	{
+		"city": "Bat Yam",
+		"address": "Herzl",
+		"rooms": 2,
+		"price": 2900,
+		"features": [],
+		"id": "6"
+	}
 ]

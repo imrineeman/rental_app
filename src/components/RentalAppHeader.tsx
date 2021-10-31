@@ -1,7 +1,5 @@
-import React from 'react';
-
 const RentalAppHeader = () => {
-	return <div>Header!</div>;
+	return <h1>Rentals Application</h1>;
 };
 
 export default RentalAppHeader;

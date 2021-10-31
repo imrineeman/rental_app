@@ -1,7 +1,11 @@
 import React from 'react';
 
-const ApartmentsFooter = () => {
-	return <div>Footer...</div>;
+const ApartmentsFooter = ({
+	apartmentMatches,
+}: {
+	apartmentMatches: number;
+}) => {
+	return <div>Matches {apartmentMatches} results</div>;
 };
 
 export default ApartmentsFooter;

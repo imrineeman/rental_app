@@ -1,9 +1,11 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import apartmentsReducer from '../features/apartments/apartmentsSlice';
+import filtersReducer from '../features/filters/filtersSlice';
 
 export const store = configureStore({
 	reducer: {
 		apartments: apartmentsReducer,
+		filters: filtersReducer,
 	},
 });
 
