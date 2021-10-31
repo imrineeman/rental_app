@@ -4,14 +4,25 @@ import { useAppDispatch } from '../../store/hooks';
 import { createApartmentActionCreator } from './apartmentsSlice';
 import { Apartment, ApartmentFeatures } from '../../shared/types/types';
 import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
 import ApartmentFeatureSelect from './ApartmentFeatureSelect';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogTitle from '@mui/material/DialogTitle';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 
 interface FormProps {
 	toggleFormVisibility(): void;
+	open: boolean;
+	handleShowFormClick(): void;
 }
 
-const NewApartmentForm = (props: FormProps): JSX.Element => {
+const NewApartmentForm = ({
+	toggleFormVisibility,
+	open,
+	handleShowFormClick,
+}: FormProps): JSX.Element => {
 	const [features, setFeatures] = useState<ApartmentFeatures[]>([]);
 	const city = useTextInput('');
 	const address = useTextInput('');
@@ -32,23 +43,31 @@ const NewApartmentForm = (props: FormProps): JSX.Element => {
 		};
 
 		dispatch(createApartmentActionCreator(newApartment));
-		props.toggleFormVisibility();
+		toggleFormVisibility();
+		handleShowFormClick();
 	};
+
+	const textInputStyle = { margin: 0.8, display: 'flex' };
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
-				<Stack
-					spacing={2}
-					margin={1}
-					justifyContent="center"
-					direction="row">
-					<Stack spacing={2} margin={1} justifyContent="center">
+			<Dialog open={open} onClose={handleShowFormClick}>
+				<DialogTitle>Add Listing</DialogTitle>
+				<DialogContent>
+					<Grid
+						sx={{
+							display: 'grid',
+							columnGap: 1,
+							rowGap: 1,
+							gridTemplateColumns: 'repeat(2, 1fr)',
+							borderRadius: '10',
+						}}>
 						<TextField
 							id="city-input"
 							label="City"
 							value={city.value}
 							onChange={city.onChange}
 							size={'small'}
+							sx={textInputStyle}
 						/>
 						<TextField
 							id="address-input"
@@ -56,15 +75,7 @@ const NewApartmentForm = (props: FormProps): JSX.Element => {
 							value={address.value}
 							onChange={address.onChange}
 							size={'small'}
-						/>
-					</Stack>
-					<Stack spacing={2} margin={1} justifyContent="center">
-						<TextField
-							id="rooms-input"
-							label="Rooms"
-							value={rooms.value}
-							onChange={rooms.onChange}
-							size={'small'}
+							sx={textInputStyle}
 						/>
 						<TextField
 							id="address-input"
@@ -72,20 +83,26 @@ const NewApartmentForm = (props: FormProps): JSX.Element => {
 							value={price.value}
 							onChange={price.onChange}
 							size={'small'}
+							sx={textInputStyle}
 						/>
-					</Stack>
-					<Stack
-						spacing={2}
-						margin={1}
-						justifyContent="center"
-						direction="row">
-						<ApartmentFeatureSelect
-							setNewApartmentFeatures={setFeatures}
+						<TextField
+							id="address-input"
+							label="Rooms"
+							value={rooms.value}
+							onChange={rooms.onChange}
+							size={'small'}
+							sx={textInputStyle}
 						/>
-					</Stack>
-					<input type="submit" value="Submit Form" />
-				</Stack>
-			</form>
+					</Grid>
+					<ApartmentFeatureSelect
+						setNewApartmentFeatures={setFeatures}
+					/>
+				</DialogContent>
+				<DialogActions>
+					<Button onClick={handleShowFormClick}>Cancel</Button>
+					<Button onClick={handleSubmit}>Submit</Button>
+				</DialogActions>
+			</Dialog>
 		</div>
 	);
 };

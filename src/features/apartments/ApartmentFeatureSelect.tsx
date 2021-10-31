@@ -16,7 +16,6 @@ const MenuProps = {
 	PaperProps: {
 		style: {
 			maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-			width: 250,
 		},
 	},
 };
@@ -58,10 +57,8 @@ const ApartmentFeatureSelect = ({
 
 	return (
 		<div>
-			<FormControl sx={{ m: 1, width: 300 }}>
-				<InputLabel id="demo-multiple-chip-label">
-					Select Features
-				</InputLabel>
+			<FormControl sx={{ display: 'flex', margin: 0.8 }}>
+				<InputLabel id="demo-multiple-chip-label">Select</InputLabel>
 				<Select
 					labelId="demo-multiple-chip-label"
 					id="demo-multiple-chip"

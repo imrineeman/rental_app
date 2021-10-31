@@ -13,9 +13,11 @@ const ApartmentFormToggler = (): JSX.Element => {
 			<Button color="secondary" onClick={handleShowFormClick}>
 				Add apartment
 			</Button>
-			{showForm && (
-				<NewApartmentForm toggleFormVisibility={handleShowFormClick} />
-			)}
+			<NewApartmentForm
+				open={showForm}
+				toggleFormVisibility={handleShowFormClick}
+				handleShowFormClick={handleShowFormClick}
+			/>
 		</div>
 	);
 };
