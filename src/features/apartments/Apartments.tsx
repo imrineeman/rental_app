@@ -2,7 +2,6 @@ import React from 'react';
 import { useAppSelector } from '../../store/hooks';
 import ApartmentList from './ApartmentsList';
 import ApartmentsFooter from './ApartmentsFooter';
-import ApartmentFormToggler from './ApartmentFormToggler';
 import { Apartment } from '../../shared/types/types';
 
 const Apartments = (): JSX.Element => {
@@ -12,7 +11,7 @@ const Apartments = (): JSX.Element => {
 	const isIncludes = <T extends string>(attribute: T, filter: T) =>
 		attribute.toLowerCase().includes(filter.toLowerCase());
 
-	const isFilterWithinRange = (num: number, range: number[]) =>
+	const isWithinRange = (num: number, range: number[]) =>
 		num >= range[0] && num <= range[1];
 
 	const isHasFeatures = (apartment: Apartment) =>
@@ -25,14 +24,13 @@ const Apartments = (): JSX.Element => {
 			(apartment) =>
 				isIncludes(apartment.city, filters.city) &&
 				isIncludes(apartment.address, filters.address) &&
-				isFilterWithinRange(apartment.rooms, filters.rooms) &&
-				isFilterWithinRange(apartment.price, filters.price) &&
+				isWithinRange(apartment.rooms, filters.rooms) &&
+				isWithinRange(apartment.price, filters.price) &&
 				isHasFeatures(apartment),
 		))();
 
 	return (
-		<div>
-			<ApartmentFormToggler />
+		<div className="apartment-content">
 			<ApartmentList apartments={filteredApartments} />
 			<ApartmentsFooter apartmentMatches={filteredApartments.length} />
 		</div>

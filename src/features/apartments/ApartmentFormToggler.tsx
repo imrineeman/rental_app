@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
 import NewApartmentForm from './NewApartmentForm';
 import Button from '@mui/material/Button';
+import AddRoundedIcon from '@mui/icons-material/AddRounded';
 
 const ApartmentFormToggler = (): JSX.Element => {
-	const [showForm, setShowForm] = useState(false);
+	const [isFormOpen, setIsFormOpen] = useState(false);
 	const handleShowFormClick = () => {
-		setShowForm(showForm ? false : true);
+		setIsFormOpen(isFormOpen ? false : true);
 	};
 
 	return (
 		<div>
-			<Button color="secondary" onClick={handleShowFormClick}>
-				Add apartment
+			<Button
+				color="success"
+				onClick={handleShowFormClick}
+				variant="outlined">
+				<AddRoundedIcon />
 			</Button>
 			<NewApartmentForm
-				open={showForm}
-				toggleFormVisibility={handleShowFormClick}
+				isOpen={isFormOpen}
 				handleShowFormClick={handleShowFormClick}
 			/>
 		</div>

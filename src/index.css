@@ -4,7 +4,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	margin: 0px auto;
-	width: calc(60vw - 1px);
+	width: calc(70vw - 1px);
 }
 
 code {

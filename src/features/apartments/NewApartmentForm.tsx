@@ -13,14 +13,12 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 
 interface FormProps {
-	toggleFormVisibility(): void;
-	open: boolean;
+	isOpen: boolean;
 	handleShowFormClick(): void;
 }
 
 const NewApartmentForm = ({
-	toggleFormVisibility,
-	open,
+	isOpen,
 	handleShowFormClick,
 }: FormProps): JSX.Element => {
 	const [features, setFeatures] = useState<ApartmentFeatures[]>([]);
@@ -43,14 +41,13 @@ const NewApartmentForm = ({
 		};
 
 		dispatch(createApartmentActionCreator(newApartment));
-		toggleFormVisibility();
 		handleShowFormClick();
 	};
 
 	const textInputStyle = { margin: 0.8, display: 'flex' };
 	return (
 		<div>
-			<Dialog open={open} onClose={handleShowFormClick}>
+			<Dialog open={isOpen} onClose={handleShowFormClick}>
 				<DialogTitle>Add Listing</DialogTitle>
 				<DialogContent>
 					<Grid

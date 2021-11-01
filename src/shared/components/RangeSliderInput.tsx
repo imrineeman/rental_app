@@ -4,6 +4,7 @@ import Slider from '@mui/material/Slider';
 import { ApartmentFilter } from '../types/types';
 import { useAppDispatch } from '../../store/hooks';
 import { updateFilterActionCreator } from '../../features/filters/filtersSlice';
+import { capitalizeFirstLetter } from '../utils/utils';
 import { useCallback, useEffect } from 'react';
 
 interface RangeSliderProps {
@@ -40,12 +41,8 @@ const RangeSliderInput = ({
 	}, [value, filterType, stableDispatch]);
 
 	return (
-		<Box
-			sx={{
-				width: '15%',
-				display: 'inline-block',
-				margin: '1%',
-			}}>
+		<Box width="10em" padding="0em">
+			{capitalizeFirstLetter(filterType)}
 			<Slider
 				getAriaLabel={() => 'Numeric range input'}
 				value={value}
@@ -55,7 +52,7 @@ const RangeSliderInput = ({
 				min={sliderConfigValues.minValue}
 				max={sliderConfigValues.maxValue}
 				size={'medium'}
-				color="secondary"
+				color="primary"
 			/>
 		</Box>
 	);

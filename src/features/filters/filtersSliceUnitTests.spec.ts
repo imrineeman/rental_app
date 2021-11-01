@@ -8,7 +8,7 @@ test('check if initial state is being returned by default', () => {
 });
 
 describe('filter update action creator tests', () => {
-	test('test address filter update', () => {
+	test('address filter update', () => {
 		const newState = reducer(
 			initialState,
 			updateFilterActionCreator({
@@ -16,10 +16,10 @@ describe('filter update action creator tests', () => {
 				filterValue: 'Test',
 			}),
 		);
-		expect(newState['address']).toBe('Test');
+		expect(newState.address).toBe('Test');
 	});
 
-	test('test city filter update', () => {
+	test('city filter update', () => {
 		const newState = reducer(
 			initialState,
 			updateFilterActionCreator({
@@ -27,10 +27,10 @@ describe('filter update action creator tests', () => {
 				filterValue: 'Test',
 			}),
 		);
-		expect(newState['city']).toBe('Test');
+		expect(newState.city).toBe('Test');
 	});
 
-	test('test price filter update', () => {
+	test('price filter update', () => {
 		const newState = reducer(
 			initialState,
 			updateFilterActionCreator({
@@ -38,10 +38,10 @@ describe('filter update action creator tests', () => {
 				filterValue: [1000, 1500],
 			}),
 		);
-		expect(newState['price']).toStrictEqual([1000, 1500]);
+		expect(newState.price).toStrictEqual([1000, 1500]);
 	});
 
-	test('test rooms filter update', () => {
+	test('rooms filter update', () => {
 		const newState = reducer(
 			initialState,
 			updateFilterActionCreator({
@@ -49,10 +49,10 @@ describe('filter update action creator tests', () => {
 				filterValue: [1, 5],
 			}),
 		);
-		expect(newState['rooms']).toStrictEqual([1, 5]);
+		expect(newState.rooms).toStrictEqual([1, 5]);
 	});
 
-	test('test feature filter update', () => {
+	test('feature filter update', () => {
 		const newState = reducer(
 			initialState,
 			updateFilterActionCreator({
@@ -60,6 +60,6 @@ describe('filter update action creator tests', () => {
 				filterValue: ['parking'],
 			}),
 		);
-		expect(newState['features']).toStrictEqual(['parking']);
+		expect(newState.features).toStrictEqual(['parking']);
 	});
 });

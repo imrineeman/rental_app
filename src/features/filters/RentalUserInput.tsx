@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import TextInput from '../../shared/components/TextInput';
 import RangeSliderInput from '../../shared/components/RangeSliderInput';
 import FeatureButtonsRow from './FeatureButtonsRow';
+import ApartmentFormToggler from '../apartments/ApartmentFormToggler';
+
 import { ApartmentFeatures } from '../../shared/types/types';
 import { useAppDispatch } from '../../store/hooks';
 import { updateFilterActionCreator } from '../../features/filters/filtersSlice';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
+
 import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
+import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded';
 
 const RentalUserInput = () => {
 	const [selectedFeatures, setSelectedFeatures] = useState<
@@ -46,7 +50,6 @@ const RentalUserInput = () => {
 		<div className="RentalUserInput">
 			<Stack
 				spacing={2}
-				margin={1}
 				direction="row"
 				justifyContent="center"
 				divider={<Divider orientation="vertical" flexItem />}>
@@ -77,13 +80,15 @@ const RentalUserInput = () => {
 				divider={<Divider orientation="vertical" flexItem />}>
 				<FeatureButtonsRow
 					handleFeatureButtonClick={handleFeatureButtonClick}
+					selected={selectedFeatures}
 				/>
 				<Button
 					variant="outlined"
 					color="error"
 					onClick={handleResetClick}>
-					Reset Feature Filters
+					<ReplayRoundedIcon />
 				</Button>
+				<ApartmentFormToggler />
 			</Stack>
 		</div>
 	);
