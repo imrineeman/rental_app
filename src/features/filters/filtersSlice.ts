@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ApartmentFilters, ApartmentFilter } from '../../shared/types/types';
+import { ApartmentFilters, ApartmentFeatures } from '../../shared/types/types';
 
 export const initialState: ApartmentFilters = {
 	city: '',
@@ -13,37 +13,65 @@ export const filtersSlice = createSlice({
 	name: 'filters',
 	initialState,
 	reducers: {
-		update: (
+		updateAddress: (
 			state,
 			{
 				payload,
 			}: PayloadAction<{
-				filterType: ApartmentFilter;
-				filterValue: any; // How to handle typing this?
+				filterValue: string;
 			}>,
 		) => {
-			switch (
-				payload.filterType // Seperate switch statement to distinct actions?
-			) {
-				case 'address':
-					state.address = payload.filterValue;
-					break;
-				case 'city':
-					state.city = payload.filterValue;
-					break;
-				case 'price':
-					state.price = payload.filterValue;
-					break;
-				case 'rooms':
-					state.rooms = payload.filterValue;
-					break;
-				case 'features':
-					state.features = payload.filterValue;
-			}
+			state.address = payload.filterValue;
+		},
+		updateCity: (
+			state,
+			{
+				payload,
+			}: PayloadAction<{
+				filterValue: string;
+			}>,
+		) => {
+			state.city = payload.filterValue;
+		},
+		updatePrice: (
+			state,
+			{
+				payload,
+			}: PayloadAction<{
+				filterValue: number[];
+			}>,
+		) => {
+			state.price = payload.filterValue;
+		},
+		updateRooms: (
+			state,
+			{
+				payload,
+			}: PayloadAction<{
+				filterValue: number[];
+			}>,
+		) => {
+			state.rooms = payload.filterValue;
+		},
+		updateFeatures: (
+			state,
+			{
+				payload,
+			}: PayloadAction<{
+				filterValue: ApartmentFeatures[];
+			}>,
+		) => {
+			state.features = payload.filterValue;
 		},
 	},
 });
 
-export const { update: updateFilterActionCreator } = filtersSlice.actions;
+export const {
+	updateAddress: updateAddressFilterActionCreator,
+	updateCity: updateCityFilterActionCreator,
+	updatePrice: updatePriceFilterActionCreator,
+	updateRooms: updateRoomsFilterActionCreator,
+	updateFeatures: updateFeaturesFilterActionCreator,
+} = filtersSlice.actions;
 
 export default filtersSlice.reducer;

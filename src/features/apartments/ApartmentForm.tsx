@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
+
 import useTextInput from '../../shared/hooks/useTextInput';
 import { useAppDispatch } from '../../store/hooks';
 import { createApartmentActionCreator } from './apartmentsSlice';
 import { Apartment, ApartmentFeatures } from '../../shared/types/types';
-import TextField from '@mui/material/TextField';
+import FormTextField from './FormTextField';
 import ApartmentFeatureSelect from './ApartmentFeatureSelect';
+import FormFieldsGrid from './FormFieldsGrid';
+
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 
 interface FormProps {
 	isOpen: boolean;
 	handleShowFormClick(): void;
 }
 
-const NewApartmentForm = ({
+const ApartmentForm = ({
 	isOpen,
 	handleShowFormClick,
 }: FormProps): JSX.Element => {
@@ -44,53 +46,17 @@ const NewApartmentForm = ({
 		handleShowFormClick();
 	};
 
-	const textInputStyle = { margin: 0.8, display: 'flex' };
 	return (
 		<div>
 			<Dialog open={isOpen} onClose={handleShowFormClick}>
 				<DialogTitle>Add Listing</DialogTitle>
 				<DialogContent>
-					<Grid
-						sx={{
-							display: 'grid',
-							columnGap: 1,
-							rowGap: 1,
-							gridTemplateColumns: 'repeat(2, 1fr)',
-							borderRadius: '10',
-						}}>
-						<TextField
-							id="city-input"
-							label="City"
-							value={city.value}
-							onChange={city.onChange}
-							size={'small'}
-							sx={textInputStyle}
-						/>
-						<TextField
-							id="address-input"
-							label="Address"
-							value={address.value}
-							onChange={address.onChange}
-							size={'small'}
-							sx={textInputStyle}
-						/>
-						<TextField
-							id="address-input"
-							label="Price"
-							value={price.value}
-							onChange={price.onChange}
-							size={'small'}
-							sx={textInputStyle}
-						/>
-						<TextField
-							id="address-input"
-							label="Rooms"
-							value={rooms.value}
-							onChange={rooms.onChange}
-							size={'small'}
-							sx={textInputStyle}
-						/>
-					</Grid>
+					<FormFieldsGrid>
+						<FormTextField fieldType={city} label={'city'} />
+						<FormTextField fieldType={address} label={'address'} />
+						<FormTextField fieldType={rooms} label={'rooms'} />
+						<FormTextField fieldType={price} label={'price'} />
+					</FormFieldsGrid>
 					<ApartmentFeatureSelect
 						setNewApartmentFeatures={setFeatures}
 					/>
@@ -104,4 +70,4 @@ const NewApartmentForm = ({
 	);
 };
 
-export default NewApartmentForm;
+export default ApartmentForm;

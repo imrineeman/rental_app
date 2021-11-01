@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react';
 import useTextInput from '../hooks/useTextInput';
 import { useAppDispatch } from '../../store/hooks';
-import { updateFilterActionCreator } from '../../features/filters/filtersSlice';
 import { ApartmentFilter } from '../types/types';
 import TextField from '@mui/material/TextField';
 import { capitalizeFirstLetter } from '../utils/utils';
 
-const TextInput = ({ inputFieldName }: { inputFieldName: ApartmentFilter }) => {
+interface TextInputProps {
+	inputFieldName: Exclude<ApartmentFilter, 'rooms' | 'price'>;
+	reducer: any;
+}
+
+const TextInput = ({ inputFieldName, reducer }: TextInputProps) => {
 	const input = useTextInput('');
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(
-			updateFilterActionCreator({
-				filterType: inputFieldName,
+			reducer({
 				filterValue: input.value,
 			}),
 		);

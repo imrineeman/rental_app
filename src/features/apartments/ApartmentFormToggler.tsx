@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import NewApartmentForm from './NewApartmentForm';
+import ApartmentForm from './ApartmentForm';
 import Button from '@mui/material/Button';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 
@@ -17,7 +17,7 @@ const ApartmentFormToggler = (): JSX.Element => {
 				variant="outlined">
 				<AddRoundedIcon />
 			</Button>
-			<NewApartmentForm
+			<ApartmentForm
 				isOpen={isFormOpen}
 				handleShowFormClick={handleShowFormClick}
 			/>

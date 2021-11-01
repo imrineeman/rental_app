@@ -3,21 +3,23 @@ import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import { ApartmentFilter } from '../types/types';
 import { useAppDispatch } from '../../store/hooks';
-import { updateFilterActionCreator } from '../../features/filters/filtersSlice';
 import { capitalizeFirstLetter } from '../utils/utils';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 
 interface RangeSliderProps {
-	filterType: ApartmentFilter;
+	filterType: Extract<ApartmentFilter, 'rooms' | 'price'>;
 	sliderConfigValues: {
 		minValue: number;
 		maxValue: number;
 		increment: number;
 	};
+	reducer: any;
 }
+
 const RangeSliderInput = ({
 	filterType,
 	sliderConfigValues,
+	reducer,
 }: RangeSliderProps) => {
 	const [value, setValue] = React.useState<number[]>([
 		sliderConfigValues.minValue,
@@ -25,20 +27,18 @@ const RangeSliderInput = ({
 	]);
 
 	const dispatch = useAppDispatch();
-	const stableDispatch = useCallback(dispatch, []);
 
 	const handleChange = (_event: Event, newValue: number | number[]) => {
 		setValue(newValue as number[]);
 	};
 
 	useEffect(() => {
-		stableDispatch(
-			updateFilterActionCreator({
-				filterType: filterType,
+		dispatch(
+			reducer({
 				filterValue: value,
 			}),
 		);
-	}, [value, filterType, stableDispatch]);
+	}, [value, filterType, dispatch, reducer]);
 
 	return (
 		<Box width="10em" padding="0em">

@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import TextInput from '../../shared/components/TextInput';
-import RangeSliderInput from '../../shared/components/RangeSliderInput';
+import React, { useState, useEffect } from 'react';
+
 import FeatureButtonsRow from './FeatureButtonsRow';
 import ApartmentFormToggler from '../apartments/ApartmentFormToggler';
+import RoomsRangeSliderInput from './RoomsRangeSliderInput';
+import PriceRangeSliderInput from './PriceRangeSliderInput';
+import CityFilterTextInput from './CityFilterTextInput';
+import AddressFilterTextInput from './AddressFilterTextInput';
+import HorizontalStackWithDivider from '../../shared/components/HorizontalStackWithDivider';
 
 import { ApartmentFeatures } from '../../shared/types/types';
 import { useAppDispatch } from '../../store/hooks';
-import { updateFilterActionCreator } from '../../features/filters/filtersSlice';
-import { useEffect } from 'react';
+import { updateFeaturesFilterActionCreator } from '../../features/filters/filtersSlice';
 
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
 import ReplayRoundedIcon from '@mui/icons-material/ReplayRounded';
 
@@ -18,8 +19,6 @@ const RentalUserInput = () => {
 	const [selectedFeatures, setSelectedFeatures] = useState<
 		ApartmentFeatures[]
 	>([]);
-
-	const dispatch = useAppDispatch();
 
 	const handleFeatureButtonClick = (feature: ApartmentFeatures) => {
 		if (selectedFeatures.includes(feature)) {
@@ -37,47 +36,25 @@ const RentalUserInput = () => {
 		setSelectedFeatures([]);
 	};
 
+	const dispatch = useAppDispatch();
+
 	useEffect(() => {
 		dispatch(
-			updateFilterActionCreator({
-				filterType: 'features',
+			updateFeaturesFilterActionCreator({
 				filterValue: [...selectedFeatures],
 			}),
 		);
 	}, [selectedFeatures, dispatch]);
 
 	return (
-		<div className="RentalUserInput">
-			<Stack
-				spacing={2}
-				direction="row"
-				justifyContent="center"
-				divider={<Divider orientation="vertical" flexItem />}>
-				<TextInput inputFieldName={'city'} />
-				<TextInput inputFieldName={'address'} />
-				<RangeSliderInput
-					filterType={'rooms'}
-					sliderConfigValues={{
-						minValue: 1,
-						maxValue: 10,
-						increment: 1,
-					}}
-				/>
-				<RangeSliderInput
-					filterType={'price'}
-					sliderConfigValues={{
-						minValue: 1000,
-						maxValue: 10000,
-						increment: 1000,
-					}}
-				/>
-			</Stack>
-			<Stack
-				spacing={2}
-				margin={1}
-				direction="row"
-				justifyContent="center"
-				divider={<Divider orientation="vertical" flexItem />}>
+		<div className="rental-user-input">
+			<HorizontalStackWithDivider>
+				<CityFilterTextInput />
+				<AddressFilterTextInput />
+				<RoomsRangeSliderInput />
+				<PriceRangeSliderInput />
+			</HorizontalStackWithDivider>
+			<HorizontalStackWithDivider>
 				<FeatureButtonsRow
 					handleFeatureButtonClick={handleFeatureButtonClick}
 					selected={selectedFeatures}
@@ -89,7 +66,7 @@ const RentalUserInput = () => {
 					<ReplayRoundedIcon />
 				</Button>
 				<ApartmentFormToggler />
-			</Stack>
+			</HorizontalStackWithDivider>
 		</div>
 	);
 };
