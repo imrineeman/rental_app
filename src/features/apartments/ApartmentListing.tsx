@@ -38,9 +38,7 @@ const ApartmentListing = ({
 					fieldValue={apartment.rooms}
 				/>
 				<Grid>
-					<div className="feature-chips">
-						<ApartmentFeatureChips apartment={apartment} />
-					</div>
+					<ApartmentFeatureChips features={apartment.features} />
 				</Grid>
 				<ApartmentDataField
 					fieldType="address"

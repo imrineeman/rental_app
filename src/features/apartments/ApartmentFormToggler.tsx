@@ -10,8 +10,9 @@ const ApartmentFormToggler = (): JSX.Element => {
 	};
 
 	return (
-		<div>
+		<>
 			<Button
+				className="form-toggler-btn"
 				color="success"
 				onClick={handleShowFormClick}
 				variant="outlined">
@@ -21,7 +22,7 @@ const ApartmentFormToggler = (): JSX.Element => {
 				isOpen={isFormOpen}
 				handleShowFormClick={handleShowFormClick}
 			/>
-		</div>
+		</>
 	);
 };
 

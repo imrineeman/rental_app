@@ -47,7 +47,7 @@ const ApartmentForm = ({
 	};
 
 	return (
-		<div>
+		<div className="apartment-form">
 			<Dialog open={isOpen} onClose={handleShowFormClick}>
 				<DialogTitle>Add Listing</DialogTitle>
 				<DialogContent>

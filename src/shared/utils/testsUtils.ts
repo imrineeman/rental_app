@@ -1,4 +1,4 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import apartmentsReducer from '../../features/apartments/apartmentsSlice';
 import filtersReducer from '../../features/filters/filtersSlice';
 import { Apartment } from '../types/types';

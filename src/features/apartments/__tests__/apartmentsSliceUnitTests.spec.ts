@@ -2,6 +2,7 @@ import reducer, {
 	createApartmentActionCreator,
 	deleteApartmentActionCreator,
 } from '../apartmentsSlice';
+import { Apartment } from '../../../shared/types/types';
 import mockData from '../../../shared/utils/initialData.json';
 
 const newApartment = {
@@ -17,7 +18,7 @@ test('check if initial state is being returned by default', () => {
 });
 
 describe('CRUD operation unit tests', () => {
-	const previousState = [];
+	const previousState: Apartment[] = [];
 	const currentState = reducer(
 		previousState,
 		createApartmentActionCreator(newApartment),

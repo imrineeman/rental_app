@@ -1,7 +1,11 @@
 import reducer, {
-	updateFilterActionCreator,
+	updateAddressFilterActionCreator,
+	updateCityFilterActionCreator,
+	updatePriceFilterActionCreator,
+	updateRoomsFilterActionCreator,
+	updateFeaturesFilterActionCreator,
 	initialState,
-} from './filtersSlice';
+} from '../filtersSlice';
 
 test('check if initial state is being returned by default', () => {
 	expect(reducer(undefined, {})).toEqual(initialState);
@@ -11,8 +15,7 @@ describe('filter update action creator tests', () => {
 	test('address filter update', () => {
 		const newState = reducer(
 			initialState,
-			updateFilterActionCreator({
-				filterType: 'address',
+			updateAddressFilterActionCreator({
 				filterValue: 'Test',
 			}),
 		);
@@ -22,8 +25,7 @@ describe('filter update action creator tests', () => {
 	test('city filter update', () => {
 		const newState = reducer(
 			initialState,
-			updateFilterActionCreator({
-				filterType: 'city',
+			updateCityFilterActionCreator({
 				filterValue: 'Test',
 			}),
 		);
@@ -33,8 +35,7 @@ describe('filter update action creator tests', () => {
 	test('price filter update', () => {
 		const newState = reducer(
 			initialState,
-			updateFilterActionCreator({
-				filterType: 'price',
+			updatePriceFilterActionCreator({
 				filterValue: [1000, 1500],
 			}),
 		);
@@ -44,8 +45,7 @@ describe('filter update action creator tests', () => {
 	test('rooms filter update', () => {
 		const newState = reducer(
 			initialState,
-			updateFilterActionCreator({
-				filterType: 'rooms',
+			updateRoomsFilterActionCreator({
 				filterValue: [1, 5],
 			}),
 		);
@@ -55,8 +55,7 @@ describe('filter update action creator tests', () => {
 	test('feature filter update', () => {
 		const newState = reducer(
 			initialState,
-			updateFilterActionCreator({
-				filterType: 'features',
+			updateFeaturesFilterActionCreator({
 				filterValue: ['parking'],
 			}),
 		);
