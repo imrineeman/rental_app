@@ -1,18 +1,15 @@
 import React from 'react';
 
-import Stack from '@mui/material/Stack';
+//import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import { ReactNode } from 'react-transition-group/node_modules/@types/react';
 
 const HorizontalStackWithDivider = ({ children }: { children: ReactNode }) => {
 	return (
-		<Stack
-			spacing={2}
-			direction="row"
-			justifyContent="center"
-			divider={<Divider orientation="vertical" flexItem />}>
+		<Grid container direction="row" justifyContent="space-between">
 			{children}
-		</Stack>
+		</Grid>
 	);
 };
 

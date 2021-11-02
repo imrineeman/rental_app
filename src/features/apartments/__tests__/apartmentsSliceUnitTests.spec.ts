@@ -2,6 +2,7 @@ import reducer, {
 	createApartmentActionCreator,
 	deleteApartmentActionCreator,
 } from '../apartmentsSlice';
+
 import { Apartment } from '../../../shared/types/types';
 import mockData from '../../../shared/utils/initialData.json';
 
