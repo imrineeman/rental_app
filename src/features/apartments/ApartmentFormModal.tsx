@@ -4,7 +4,7 @@ import ApartmentForm from './ApartmentForm';
 import Button from '@mui/material/Button';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 
-const ApartmentFormToggler = (): JSX.Element => {
+const ApartmentFormModal = (): JSX.Element => {
 	const [isFormOpen, setIsFormOpen] = useState(false);
 	const handleShowFormClick = () => {
 		setIsFormOpen(isFormOpen ? false : true);
@@ -20,6 +20,7 @@ const ApartmentFormToggler = (): JSX.Element => {
 				<AddRoundedIcon />
 			</Button>
 			<ApartmentForm
+				data-testid="apartment-form"
 				isOpen={isFormOpen}
 				handleShowFormClick={handleShowFormClick}
 			/>
@@ -27,4 +28,4 @@ const ApartmentFormToggler = (): JSX.Element => {
 	);
 };
 
-export default ApartmentFormToggler;
+export default ApartmentFormModal;

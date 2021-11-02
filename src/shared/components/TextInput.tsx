@@ -5,9 +5,16 @@ import { ApartmentFilter } from '../types/types';
 import TextField from '@mui/material/TextField';
 import { capitalizeFirstLetter } from '../utils/utils';
 
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
+
 interface TextInputProps {
 	inputFieldName: Exclude<ApartmentFilter, 'rooms' | 'price'>;
-	reducer: any;
+	reducer: ActionCreatorWithPayload<
+		{
+			filterValue: string;
+		},
+		string
+	>;
 }
 
 const TextInput = ({ inputFieldName, reducer }: TextInputProps) => {

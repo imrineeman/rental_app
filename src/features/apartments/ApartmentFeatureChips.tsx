@@ -24,7 +24,11 @@ const ApartmentFeatureChips = ({ features }: ApartmentFeatureChipsProps) => {
 		return chipArr;
 	})();
 
-	return <Grid item>{renderFeatureChips}</Grid>;
+	return (
+		<Grid item data-testid="apartment-feature-chips">
+			{renderFeatureChips}
+		</Grid>
+	);
 };
 
 export default ApartmentFeatureChips;

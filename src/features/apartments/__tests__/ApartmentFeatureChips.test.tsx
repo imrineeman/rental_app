@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import ApartmentFeatureChips from '../ApartmentFeatureChips';
 import { createTestStore } from '../../../shared/utils/testsUtils';
 import { Provider } from 'react-redux';
@@ -25,7 +25,7 @@ describe('Apartment listing feature chips tests', () => {
 
 	test('check if chips render', () => {
 		expect(
-			component.container.querySelector('.feature-chips').children,
+			screen.getByTestId('apartment-feature-chips').children,
 		).toHaveLength(mockApartment.features.length);
 	});
 });

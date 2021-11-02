@@ -49,7 +49,7 @@ const ApartmentListing = ({
 					justifyContent="space-between">
 					<ApartmentFeatureChips features={apartment.features} />
 				</Grid>
-				<Grid item xs={2}>
+				<Grid item xs={1}>
 					<Button color="error" onClick={handleRemoveClick}>
 						<DeleteOutlineIcon />
 					</Button>

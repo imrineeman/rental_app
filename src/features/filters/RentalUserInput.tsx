@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import FeatureButtonsRow from './FeatureButtonsRow';
-import ApartmentFormToggler from '../apartments/ApartmentFormToggler';
+import ApartmentFormModal from '../apartments/ApartmentFormModal';
 import TextAndRangeFiltersBar from './TextAndRangeFiltersBar';
 import HorizontalGridEvenlySpaced from '../../shared/components/HorizontalGridEvenlySpaced';
 
@@ -57,7 +57,7 @@ const RentalUserInput = () => {
 					onClick={handleResetClick}>
 					<ReplayRoundedIcon />
 				</Button>
-				<ApartmentFormToggler />
+				<ApartmentFormModal />
 			</HorizontalGridEvenlySpaced>
 		</>
 	);

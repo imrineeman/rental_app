@@ -7,6 +7,7 @@ import { ApartmentFilter } from '../types/types';
 import { useAppDispatch } from '../../store/hooks';
 import { capitalizeFirstLetter } from '../utils/utils';
 import { useEffect } from 'react';
+import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 
 interface RangeSliderProps {
 	filterType: Extract<ApartmentFilter, 'rooms' | 'price'>;
@@ -15,7 +16,12 @@ interface RangeSliderProps {
 		maxValue: number;
 		increment: number;
 	};
-	reducer: any;
+	reducer: ActionCreatorWithPayload<
+		{
+			filterValue: number[];
+		},
+		string
+	>;
 }
 
 const RangeSliderInput = ({
@@ -43,7 +49,7 @@ const RangeSliderInput = ({
 	}, [value, filterType, dispatch, reducer]);
 
 	return (
-		<Box width="10em" padding="0em">
+		<Box width="10em" padding="0em" textAlign="center">
 			{capitalizeFirstLetter(filterType)}
 			<Slider
 				getAriaLabel={() => 'Numeric range input'}

@@ -63,7 +63,9 @@ const ApartmentForm = ({
 				</DialogContent>
 				<DialogActions>
 					<Button onClick={handleShowFormClick}>Cancel</Button>
-					<Button onClick={handleSubmit}>Submit</Button>
+					<Button onClick={handleSubmit} data-testid="form-submit">
+						Submit
+					</Button>
 				</DialogActions>
 			</Dialog>
 		</>

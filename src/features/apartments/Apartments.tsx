@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAppSelector } from '../../store/hooks';
 import ApartmentList from './ApartmentsList';
-import ApartmentsFooter from './ApartmentsFooter';
+import FilterResultsCounter from './FilterResultsCounter';
 import { Apartment } from '../../shared/types/types';
 
 const Apartments = (): JSX.Element => {
@@ -33,7 +33,9 @@ const Apartments = (): JSX.Element => {
 	return (
 		<div className="apartment-content">
 			<ApartmentList apartments={filteredApartments} />
-			<ApartmentsFooter apartmentMatches={filteredApartments.length} />
+			<FilterResultsCounter
+				apartmentMatches={filteredApartments.length}
+			/>
 		</div>
 	);
 };
