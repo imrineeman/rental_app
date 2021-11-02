@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ApartmentListing from './ApartmentListing';
 import { Apartment } from '../../shared/types/types';
 

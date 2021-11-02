@@ -2,11 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import FeatureButtonsRow from './FeatureButtonsRow';
 import ApartmentFormToggler from '../apartments/ApartmentFormToggler';
-import RoomsRangeSliderInput from './RoomsRangeSliderInput';
-import PriceRangeSliderInput from './PriceRangeSliderInput';
-import CityFilterTextInput from './CityFilterTextInput';
-import AddressFilterTextInput from './AddressFilterTextInput';
-import HorizontalStackWithDivider from '../../shared/components/HorizontalStackWithDivider';
+import TextAndRangeFiltersBar from './TextAndRangeFiltersBar';
+import HorizontalGridEvenlySpaced from '../../shared/components/HorizontalGridEvenlySpaced';
 
 import { ApartmentFeatures } from '../../shared/types/types';
 import { useAppDispatch } from '../../store/hooks';
@@ -47,14 +44,9 @@ const RentalUserInput = () => {
 	}, [selectedFeatures, dispatch]);
 
 	return (
-		<div className="rental-user-input">
-			<HorizontalStackWithDivider>
-				<CityFilterTextInput />
-				<AddressFilterTextInput />
-				<RoomsRangeSliderInput />
-				<PriceRangeSliderInput />
-			</HorizontalStackWithDivider>
-			<HorizontalStackWithDivider>
+		<>
+			<TextAndRangeFiltersBar />
+			<HorizontalGridEvenlySpaced>
 				<FeatureButtonsRow
 					handleFeatureButtonClick={handleFeatureButtonClick}
 					selected={selectedFeatures}
@@ -66,8 +58,8 @@ const RentalUserInput = () => {
 					<ReplayRoundedIcon />
 				</Button>
 				<ApartmentFormToggler />
-			</HorizontalStackWithDivider>
-		</div>
+			</HorizontalGridEvenlySpaced>
+		</>
 	);
 };
 

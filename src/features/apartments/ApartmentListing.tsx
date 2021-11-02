@@ -1,12 +1,13 @@
 import React from 'react';
+
 import { deleteApartmentActionCreator } from './apartmentsSlice';
 import { useAppDispatch } from '../../store/hooks';
 import { Apartment } from '../../shared/types/types';
 
-import ApartmentDataField from './ApartmentDataField';
 import ApartmentFeatureChips from './ApartmentFeatureChips';
-
+import ApartmentListingTextData from './ApartmentListingTextData';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
@@ -28,27 +29,27 @@ const ApartmentListing = ({
 			paddingBottom="1em"
 			marginTop="1em"
 			borderBottom="1px solid rgba(0,0,0,0.2)">
-			<Grid display="grid" gridTemplateColumns="repeat(3, 1fr)">
-				<ApartmentDataField
-					fieldType="city"
-					fieldValue={apartment.city}
-				/>
-				<ApartmentDataField
-					fieldType="rooms"
-					fieldValue={apartment.rooms}
-				/>
-				<Grid>
+			<Grid
+				container
+				justifyContent="space-evenly"
+				alignItems="flex-start">
+				<Grid
+					item
+					xs={12}
+					md={6}
+					display="grid"
+					justifyContent="space-between">
+					<ApartmentListingTextData apartment={apartment} />
+				</Grid>
+				<Grid
+					item
+					xs={12}
+					md={4}
+					display="grid"
+					justifyContent="space-between">
 					<ApartmentFeatureChips features={apartment.features} />
 				</Grid>
-				<ApartmentDataField
-					fieldType="address"
-					fieldValue={apartment.address}
-				/>
-				<ApartmentDataField
-					fieldType="price"
-					fieldValue={apartment.price}
-				/>
-				<Grid>
+				<Grid item xs={2}>
 					<Button color="error" onClick={handleRemoveClick}>
 						<DeleteOutlineIcon />
 					</Button>

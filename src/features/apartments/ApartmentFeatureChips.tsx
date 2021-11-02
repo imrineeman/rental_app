@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Grid from '@mui/material/Grid';
 import { ApartmentFeatures } from '../../shared/types/types';
 import Chip from '@mui/material/Chip';
 
@@ -23,7 +24,7 @@ const ApartmentFeatureChips = ({ features }: ApartmentFeatureChipsProps) => {
 		return chipArr;
 	})();
 
-	return <div className="feature-chips">{renderFeatureChips}</div>;
+	return <Grid item>{renderFeatureChips}</Grid>;
 };
 
 export default ApartmentFeatureChips;

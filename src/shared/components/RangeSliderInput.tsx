@@ -1,6 +1,8 @@
 import * as React from 'react';
+
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+
 import { ApartmentFilter } from '../types/types';
 import { useAppDispatch } from '../../store/hooks';
 import { capitalizeFirstLetter } from '../utils/utils';

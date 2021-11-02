@@ -1,4 +1,5 @@
 import React from 'react';
+
 import TextField from '@mui/material/TextField';
 import { ApartmentFilter } from '../../shared/types/types';
 import { capitalizeFirstLetter } from '../../shared/utils/utils';

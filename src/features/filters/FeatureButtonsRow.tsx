@@ -1,17 +1,17 @@
 import React from 'react';
-import { featureFilters } from '../../shared/types/types';
+
+import { featureFilters, ApartmentFeatures } from '../../shared/types/types';
 import Button from '@mui/material/Button';
-import ToggleButton from '@mui/material/ToggleButton';
 
 interface FeatureButtonsRowProps {
-	handleFeatureButtonClick: any;
-	selected: any;
+	handleFeatureButtonClick: (feature: ApartmentFeatures) => void;
+	selected: typeof featureFilters;
 }
 const FeatureButtonsRow = ({
 	handleFeatureButtonClick,
 	selected,
 }: FeatureButtonsRowProps) => {
-	const isSelected = (feature: any) =>
+	const isSelected = (feature: ApartmentFeatures) =>
 		selected.includes(feature) ? 'contained' : 'outlined';
 
 	const renderButtonsRow = ((): JSX.Element[] =>

@@ -47,7 +47,7 @@ const ApartmentForm = ({
 	};
 
 	return (
-		<div className="apartment-form">
+		<>
 			<Dialog open={isOpen} onClose={handleShowFormClick}>
 				<DialogTitle>Add Listing</DialogTitle>
 				<DialogContent>
@@ -66,7 +66,7 @@ const ApartmentForm = ({
 					<Button onClick={handleSubmit}>Submit</Button>
 				</DialogActions>
 			</Dialog>
-		</div>
+		</>
 	);
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Grid from '@mui/material/Grid';
 import { ApartmentFilter } from '../../shared/types/types';
 import { capitalizeFirstLetter } from '../../shared/utils/utils';
